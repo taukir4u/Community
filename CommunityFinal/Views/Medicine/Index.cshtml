@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CommunityFinal.Models.Medicine>
+
+@{
+    ViewBag.Title = "View Medicine";
+}
+
+<p>
+    <hr/>
+    || @Html.ActionLink("View Medicine", "Index", "Medicine", new {@class = "btn btn-primary", @style = "color:white"}) ||
+    @Html.ActionLink("Medicine Setup", "Create", "Medicine") ||
+    @Html.ActionLink("Disease", "Index", "Disease") ||
+    @Html.ActionLink("Create Center", "Index", "CreateCenter") ||
+    <hr/>
+</p>
+
+<h2>View Medicine</h2>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            Generic Name@*@Html.DisplayNameFor(model => model.AUnit.Name)*@
+        </th>
+        <th>
+            Power@*@Html.DisplayNameFor(model => model.Name)*@
+        </th>
+        <th>
+            Mg/Ml@*@Html.DisplayNameFor(model => model.Power)*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Power)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AUnit.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MedicineId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MedicineId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MedicineId })
+        </td>
+    </tr>
+}
+
+</table>

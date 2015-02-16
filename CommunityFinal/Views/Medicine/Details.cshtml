@@ -1,0 +1,48 @@
+﻿@model CommunityFinal.Models.Medicine
+
+@{
+    ViewBag.Title = "Medicine Details";
+}
+
+<p>
+    <hr />
+    || @Html.ActionLink("View Medicine", "Index", "Medicine") ||
+    @Html.ActionLink("Medicine Setup", "Create", "Medicine") ||
+    @Html.ActionLink("Disease", "Index", "Disease") ||
+    @Html.ActionLink("Create Center", "Index", "CreateCenter") ||
+    <hr />
+</p>
+<h2>Medicine Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AUnit.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AUnit.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Power)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Power)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MedicineId }, new { @class = "btn btn-primary", @style = "color:white" })
+</p>

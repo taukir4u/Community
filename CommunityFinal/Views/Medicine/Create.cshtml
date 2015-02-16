@@ -1,0 +1,60 @@
+﻿@model CommunityFinal.Models.Medicine
+
+@{
+    ViewBag.Title = "Medicine Setup";
+}
+
+<p>
+    <hr />
+    || @Html.ActionLink("View Medicine", "Index", "Medicine") ||
+    @Html.ActionLink("Medicine Setup", "Create", "Medicine", new { @class = "btn btn-primary", @style = "color:white" }) ||
+    @Html.ActionLink("Disease", "Index", "Disease") ||
+    @Html.ActionLink("Create Center", "Index", "CreateCenter") ||
+    <hr />
+</p>
+<h2>Medicine Setup</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name,"Generic Name", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Power, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Power)
+                @Html.ValidationMessageFor(model => model.Power)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UnitId, "Mg/Ml", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("UnitId", String.Empty)
+                @Html.ValidationMessageFor(model => model.UnitId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

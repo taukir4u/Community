@@ -1,0 +1,79 @@
+﻿@model CommunityFinal.Models.CreateCenter
+
+@{
+    ViewBag.Title = "Edit Center";
+}
+
+<p>
+    <hr />
+    || @Html.ActionLink("View Center", "Index", "CreateCenter") ||
+    @Html.ActionLink("Disease Setup", "Create", "CreateCenter") ||
+    @Html.ActionLink("Medicine", "Index", "Medicine") ||
+    @Html.ActionLink("Disease", "Index", "CreateCenter") ||
+    <hr />
+</p>
+
+<h2>Edit Center</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.CenterId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Code, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Code)
+                @Html.ValidationMessageFor(model => model.Code)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DistrictId, "DistrictId", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("DistrictId", String.Empty)
+                @Html.ValidationMessageFor(model => model.DistrictId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UpazilaId, "UpazilaId", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("UpazilaId", String.Empty)
+                @Html.ValidationMessageFor(model => model.UpazilaId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

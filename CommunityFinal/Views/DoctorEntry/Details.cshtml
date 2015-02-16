@@ -1,0 +1,49 @@
+﻿@model CommunityFinal.Models.DoctorEntry
+
+@{
+    ViewBag.Title = "Doctor Details";
+}
+
+<p>
+    <hr />
+    @Html.ActionLink("View Doctor", "Index", "DoctorEntry", new { @class = "btn btn-primary", @style = "color:white" })
+    @Html.ActionLink("Add Doctor", "Create", "DoctorEntry", new { @class = "btn btn-primary", @style = "color:white" })
+    @*@Html.ActionLink("Disease", "Index", "Disease") ||
+        @Html.ActionLink("Create Center", "Index", "CreateCenter")*@
+    <hr />
+</p>
+
+<h2>Doctor Details</h2>
+
+<div>
+   <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Degree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Degree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specialization)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specialization)
+        </dd>
+
+    </dl>
+</div>
+<hr />
+@Html.ActionLink("Log Out", "Logout", "CreateCenter")
+

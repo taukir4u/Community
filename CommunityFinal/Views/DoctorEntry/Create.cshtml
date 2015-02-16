@@ -1,0 +1,65 @@
+﻿@model CommunityFinal.Models.DoctorEntry
+
+@{
+    ViewBag.Title = "Add Doctor";
+}
+
+<p>
+    <hr />
+    @Html.ActionLink("View Doctor", "Index", "DoctorEntry", new { @class = "btn btn-primary", @style = "color:white" })
+    @Html.ActionLink("Add Doctor", "Create", "DoctorEntry", new { @class = "btn btn-primary", @style = "color:white" })
+    @*@Html.ActionLink("Disease", "Index", "Disease") ||
+    @Html.ActionLink("Create Center", "Index", "CreateCenter")*@
+    <hr />
+</p>
+
+<h2>Add Doctor</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>DoctorEntry</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Degree, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Degree)
+                @Html.ValidationMessageFor(model => model.Degree)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Specialization, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Specialization)
+                @Html.ValidationMessageFor(model => model.Specialization)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<hr />
+@Html.ActionLink("Log Out", "Logout", "CreateCenter")
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
